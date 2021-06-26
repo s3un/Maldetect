@@ -1,5 +1,14 @@
-import pefile
-import sys
+from modules.modules import app
 
-esp1 = sys.argv[1]
-print('you entered: ', esp1)
+print("""
+        /|    //| |                                                                                   
+       //|   // | |     ___       //      ___   /      ___     __  ___     ___        ___     __  ___ 
+      // |  //  | |   //   ) )   //     //   ) /     //___) )   / /      //___) )   //   ) )   / /    
+     //  | //   | |  //   / /   //     //   / /     //         / /      //         //         / /     
+    //   |//    | | ((___( (   //     ((___/ /     ((____     / /      ((____     ((____     / /    
+
+        -- Created By IntelEye
+""")
+
+
+app()
