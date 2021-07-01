@@ -1,7 +1,12 @@
 import pefile
 import typer
+import mysql.connector
 
 app = typer.Typer(add_completion=False, )
+
+@app.command("ALL")
+def al(fil : str = typer.Argument(default='')):
+    print("still under construction")
 
 @app.command("iM")
 def impha(filepath : str = typer.Argument(default='')):
@@ -11,6 +16,15 @@ def impha(filepath : str = typer.Argument(default='')):
     pe = pefile.PE(filepath)
     hasp = pe.get_imphash()
     print("[+] Import Hash: ", hasp)
+
+
+@app.command()
+def fetch(fet: str = typer.Argument(default='')):
+    mdb = mysql.connector.connect(host='localhost', user='root', password='Postgres@1', database='intelligence')
+    cur = mdb.cursor()
+    cur.execute(f"SELECT malware_name FROM intelligence.malware WHERE malware_hash = '{fet}'")
+    myr = cur.fetchone()
+    print(myr[0])
 
 
 @app.command("cS")
