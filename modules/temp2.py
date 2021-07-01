@@ -5,7 +5,7 @@ app = typer.Typer()
 
 @app.command()
 def fetch(fet : str = typer.Argument(default='')):
-    mdb = mysql.connector.connect(host='localhost', user='root', password='Postgres@1', database='intelligence')
+    mdb = mysql.connector.connect(host='localhost', user='root', password='', database='intelligence')
     cur = mdb.cursor()
     cur.execute(f"SELECT malware_name FROM intelligence.malware WHERE malware_hash = '{fet}'")
     myr = cur.fetchone()
